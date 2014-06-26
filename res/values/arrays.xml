@@ -22,7 +22,7 @@
 	<string-array name="genre_values">
 		<item>novels</item>
 		<item>mystery</item>
-		<item>sci-fi</item>
+		<item>science+fiction</item>
 		<item>romance</item>
 		<item>drama</item>
 		<item>agriculture</item>

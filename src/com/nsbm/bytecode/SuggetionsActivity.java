@@ -5,6 +5,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -17,7 +19,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.NavUtils;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -39,24 +40,43 @@ public class SuggetionsActivity extends Activity {
 		//populateSuggetionBooks();
 		ListView suggestionsList = (ListView) findViewById(R.id.suggestionList);
 		suggestionsList.setAdapter(adapter);
+		PreferenceManager.setDefaultValues(this, R.xml.settings, false);
+		
+		/*
+		for(int i=0;i<genresList.length;i++){
+			Log.v(getClass().getName(), genresList[i]);
+		}*/
+		
+		
+	}	
+	
+	@Override
+	protected void onStart()
+	{
+		super.onStart();
 		settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		
 		Set<String> genresSet =  settings.getStringSet("genres",null);
-		String[] genresList = genresSet.toArray(new String[]{});
 		
-		if(genresList.length == 0){
+		String[] genresList = null;
+		try{
+			genresList = genresSet.toArray(new String[]{});
+		}catch(NullPointerException npe){
 			Toast.makeText(getApplicationContext(), "Please select your book genres", 
 					   Toast.LENGTH_LONG).show();
 			return;
 		}
-		
-		for(int i=0;i<genresList.length;i++){
-			Log.v(getClass().getName(), genresList[i]);
+		//Log.v(getClass().getName(),""+ genresList.length);
+		if(genresList.length <= 0){
+			Toast.makeText(getApplicationContext(), "Please select your book genres", 
+					   Toast.LENGTH_LONG).show();
+			return;
+		}else{
+			//Log.v(getClass().getName(),""+ genresList[0]);
+			(new SuggetionBooksLoader()).execute(genresList);
 		}
-		
-		(new SuggetionBooksLoader()).execute(genresList);
-		
 	}
+	
 	
 	
 	//testing method
