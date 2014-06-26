@@ -127,39 +127,41 @@ public class SuggetionsActivity extends Activity {
         	try {
         		String[] urls = prepareGoogleBooksURLs(params);
         		
-				URL u = new URL(urls[0]);
-				HttpURLConnection conn = (HttpURLConnection) u.openConnection();
-				conn.setRequestMethod("GET");
-				conn.setReadTimeout(5000); // 5 seconds
-                conn.setConnectTimeout(5000); // 5 seconds
-
-				conn.connect();
-				
-				int responseCode = conn.getResponseCode();
-				
-				if(responseCode != 200){
-	                Log.w(getClass().getName(), "GoogleBooksAPI request failed. Response Code: " + responseCode);
-	                conn.disconnect();
-	                return null;
-	            }				
-				Log.w(getClass().getName(), "GoogleBooksAPI request. Response Code: " + responseCode);
-				
-				// Read data from response.
-	            StringBuilder builder = new StringBuilder();
-	            BufferedReader responseReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-	            String line = responseReader.readLine();
-	            while (line != null){
-	                builder.append(line);
-	                line = responseReader.readLine();
-	            }
-	            
-	            String responseString = builder.toString();
-	            conn.disconnect();
-	            //Log.d(getClass().getName(), "Response String: " + responseString);
-	            JSONObject responseJson = new JSONObject(responseString);
-	            
-	            GoogleBooksParser gParser = new GoogleBooksParser(responseJson);	            
-	            books.addAll(gParser.parse());
+        		for(int i=0;i<urls.length;i++){
+					URL u = new URL(urls[i]);
+					HttpURLConnection conn = (HttpURLConnection) u.openConnection();
+					conn.setRequestMethod("GET");
+					conn.setReadTimeout(5000); // 5 seconds
+	                conn.setConnectTimeout(5000); // 5 seconds
+	
+					conn.connect();
+					
+					int responseCode = conn.getResponseCode();
+					
+					if(responseCode != 200){
+		                Log.w(getClass().getName(), "GoogleBooksAPI request failed. Response Code: " + responseCode);
+		                conn.disconnect();
+		                return null;
+		            }				
+					Log.w(getClass().getName(), "GoogleBooksAPI request. Response Code: " + responseCode);
+					
+					// Read data from response.
+		            StringBuilder builder = new StringBuilder();
+		            BufferedReader responseReader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		            String line = responseReader.readLine();
+		            while (line != null){
+		                builder.append(line);
+		                line = responseReader.readLine();
+		            }
+		            
+		            String responseString = builder.toString();
+		            conn.disconnect();
+		            //Log.d(getClass().getName(), "Response String: " + responseString);
+		            JSONObject responseJson = new JSONObject(responseString);
+		            
+		            GoogleBooksParser gParser = new GoogleBooksParser(responseJson);	            
+		            books.addAll(gParser.parse());
+        		}
 	            
         	}catch(Throwable t){
         		Log.w(getClass().getName(),t.getMessage());
