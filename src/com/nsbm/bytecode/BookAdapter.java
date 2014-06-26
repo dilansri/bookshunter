@@ -1,9 +1,15 @@
 package com.nsbm.bytecode;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -22,6 +28,24 @@ public class BookAdapter extends ArrayAdapter<Book> {
 		this.context = context;
 		this.books = books;
 	}
+	
+	public int getCount() {
+        if (books != null)
+            return books.size();
+        return 0;
+    }
+ 
+    public Book getItem(int position) {
+        if (books != null)
+            return books.get(position);
+        return null;
+    }
+ 
+    public long getItemId(int position) {
+        if (books != null)
+            return books.get(position).hashCode();
+        return 0;
+    }
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {		
@@ -34,7 +58,13 @@ public class BookAdapter extends ArrayAdapter<Book> {
 		Book currentBook = books.get(position);
 		
 		ImageView coverImage = (ImageView)bookView.findViewById(R.id.book_coverImage);
-		coverImage.setImageResource(R.drawable.ic_book);
+		Bitmap coverImageBitmap =currentBook.getImage();
+		if( coverImageBitmap != null){
+			coverImage.setImageBitmap(coverImageBitmap);
+		}else{
+			coverImage.setImageResource(R.drawable.ic_book);
+		}
+		
 		
 		TextView title = (TextView)bookView.findViewById(R.id.book_title);
 		RatingBar rating = (RatingBar)bookView.findViewById(R.id.book_ratingBar);
@@ -49,6 +79,13 @@ public class BookAdapter extends ArrayAdapter<Book> {
 		return bookView;
 	}
 	
-	
+	public List<Book> getItemList() {
+        return books;
+    }
+ 
+    public void setItemList(List<Book> books) {
+        this.books = books;
+    }    
+    
 
 }

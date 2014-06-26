@@ -1,20 +1,22 @@
 package com.nsbm.bytecode;
 
+import android.graphics.Bitmap;
+
 public class Book {
 	private String title;
 	private String authors;
 	private String description;
 	private float rating;
-	private String imageUrl;	
+	private Bitmap image;	
 	
 	public Book(String title, String authors, String description, float rating,
-			String imageUrl) {
+			Bitmap imageUrl) {
 		super();
 		this.title = title;
 		this.authors = authors;
 		this.description = description;
 		this.rating = rating;
-		this.imageUrl = imageUrl;
+		this.image = imageUrl;
 	}
 	
 	public String getTitle() {
@@ -33,8 +35,8 @@ public class Book {
 		return rating;
 	}
 	
-	public String getImageUrl() {
-		return imageUrl;
+	public Bitmap getImage() {
+		return image;
 	}
 	
 }

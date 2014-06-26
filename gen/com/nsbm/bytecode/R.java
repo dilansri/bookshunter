@@ -45,6 +45,7 @@ public final class R {
         public static final int search=0x7f0b0004;
         public static final int suggestionList=0x7f0b0007;
         public static final int suggestions=0x7f0b0001;
+        public static final int suggetions_action_settings=0x7f0b000b;
         public static final int textView3=0x7f0b0006;
     }
     public static final class layout {
