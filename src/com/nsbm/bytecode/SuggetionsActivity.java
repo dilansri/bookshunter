@@ -54,9 +54,7 @@ public class SuggetionsActivity extends Activity {
 			Log.v(getClass().getName(), genresList[i]);
 		}
 		
-		(new SuggetionBooksLoader()).execute(
-				"https://www.googleapis.com/books/v1/volumes?q=subject:"+genresList[0]+"&maxResults="+GoogleBooksParser.GENRE_RESULT_SIZE+"&orderBy=newest"
-				);
+		(new SuggetionBooksLoader()).execute(genresList);
 		
 	}
 	
@@ -127,8 +125,9 @@ public class SuggetionsActivity extends Activity {
         	*/
         	
         	try {
-				URL u = new URL(params[0]);
-
+        		String[] urls = prepareGoogleBooksURLs(params);
+        		
+				URL u = new URL(urls[0]);
 				HttpURLConnection conn = (HttpURLConnection) u.openConnection();
 				conn.setRequestMethod("GET");
 				conn.setReadTimeout(5000); // 5 seconds
@@ -160,7 +159,7 @@ public class SuggetionsActivity extends Activity {
 	            JSONObject responseJson = new JSONObject(responseString);
 	            
 	            GoogleBooksParser gParser = new GoogleBooksParser(responseJson);	            
-	            books = gParser.parse();
+	            books.addAll(gParser.parse());
 	            
         	}catch(Throwable t){
         		Log.w(getClass().getName(),t.getMessage());
@@ -168,6 +167,16 @@ public class SuggetionsActivity extends Activity {
         	
         	return books;
         }
+
+		private String[] prepareGoogleBooksURLs(String[] params) {
+			String[] url = new String[params.length];
+			
+			for(int i=0;i<params.length;i++)
+			{
+				url[i] = "https://www.googleapis.com/books/v1/volumes?q=subject:"+params[i]+"&maxResults="+GoogleBooksParser.GENRE_RESULT_SIZE+"&orderBy=newest";
+			}
+			return url;
+		}
     }
 
 }
