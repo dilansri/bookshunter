@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="genres">
+		<item>Novels</item>
+		<item>Mystery</item>
+		<item>Sci-Fi</item>
+		<item>Romance</item>
+		<item>Drama</item>
+		<item>Agriculture</item>
+		<item>Mathematics</item>
+		<item>Physics</item>
+		<item>Chemistry</item>
+		<item>Biology</item>
+		<item>Finance</item>
+		<item>Business</item>
+		<item>Marketing</item>
+		<item>Art</item>
+		<item>Science</item>
+		<item>Technology</item>
+		<item>Food</item>		
+	</string-array>
+	<string-array name="genre_values">
+		<item>novels</item>
+		<item>mystery</item>
+		<item>sci-fi</item>
+		<item>romance</item>
+		<item>drama</item>
+		<item>agriculture</item>
+		<item>mathematics</item>
+		<item>physics</item>
+		<item>chemistry</item>
+		<item>biology</item>
+		<item>finance</item>
+		<item>business</item>
+		<item>marketing</item>
+		<item>art</item>
+		<item>science</item>
+		<item>technology</item>
+		<item>food</item>
+	</string-array>
+</resources>
