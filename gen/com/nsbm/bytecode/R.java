@@ -35,17 +35,19 @@ public final class R {
         public static final int ic_suggestion=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f0b000a;
+        public static final int action_settings=0x7f0b000c;
         public static final int book_authors=0x7f0b0000;
         public static final int book_coverImage=0x7f0b0002;
         public static final int book_description=0x7f0b0003;
         public static final int book_ratingBar=0x7f0b0009;
         public static final int book_title=0x7f0b0008;
         public static final int imageView2=0x7f0b0005;
+        public static final int menu_alreadyRead=0x7f0b000b;
+        public static final int menu_wantsToRead=0x7f0b000a;
         public static final int search=0x7f0b0004;
         public static final int suggestionList=0x7f0b0007;
         public static final int suggestions=0x7f0b0001;
-        public static final int suggetions_action_settings=0x7f0b000b;
+        public static final int suggetions_action_settings=0x7f0b000d;
         public static final int textView3=0x7f0b0006;
     }
     public static final class layout {
@@ -54,12 +56,14 @@ public final class R {
         public static final int book_view=0x7f030002;
     }
     public static final class menu {
-        public static final int home=0x7f0a0000;
-        public static final int main=0x7f0a0001;
-        public static final int suggetions=0x7f0a0002;
+        public static final int book_context_menu=0x7f0a0000;
+        public static final int home=0x7f0a0001;
+        public static final int main=0x7f0a0002;
+        public static final int suggetions=0x7f0a0003;
     }
     public static final class string {
         public static final int action_settings=0x7f070001;
+        public static final int already_read=0x7f07000d;
         public static final int app_name=0x7f070000;
         public static final int cache_description=0x7f070008;
         public static final int display_name=0x7f070006;
@@ -70,6 +74,7 @@ public final class R {
         public static final int search=0x7f070005;
         public static final int suggestions=0x7f070004;
         public static final int title_activity_suggetions=0x7f07000b;
+        public static final int wants_to_read=0x7f07000c;
         public static final int welcome_message=0x7f070003;
     }
     public static final class style {

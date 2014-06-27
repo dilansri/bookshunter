@@ -13,5 +13,7 @@
     <string name="genres">Genres List</string>
     <string name="genres_description">Select your book genres</string>
     <string name="title_activity_suggetions">Suggetions</string>
+    <string name="wants_to_read">Wants To Read</string>
+    <string name="already_read">Already Read</string>
 
 </resources>

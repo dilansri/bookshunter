@@ -5,8 +5,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -20,8 +18,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -41,6 +44,7 @@ public class SuggetionsActivity extends Activity {
 		ListView suggestionsList = (ListView) findViewById(R.id.suggestionList);
 		suggestionsList.setAdapter(adapter);
 		PreferenceManager.setDefaultValues(this, R.xml.settings, false);
+		registerForContextMenu(suggestionsList);
 		
 		/*
 		for(int i=0;i<genresList.length;i++){
@@ -75,6 +79,31 @@ public class SuggetionsActivity extends Activity {
 			//Log.v(getClass().getName(),""+ genresList[0]);
 			(new SuggetionBooksLoader()).execute(genresList);
 		}
+	}
+	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+	                                ContextMenuInfo menuInfo){
+		super.onCreateContextMenu(menu, v, menuInfo);
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.book_context_menu, menu);
+	}
+	
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+	    AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+	    switch (item.getItemId()) {
+	        case R.id.menu_wantsToRead:
+	        	Toast.makeText(getApplicationContext(), "Added To Wants To Read List", 
+						   Toast.LENGTH_LONG).show();
+	            return true;
+	        case R.id.menu_alreadyRead:
+	        	Toast.makeText(getApplicationContext(), "Added To Already Read List", 
+						   Toast.LENGTH_LONG).show();
+	            return true;
+	        default:
+	            return super.onContextItemSelected(item);
+	    }
 	}
 	
 	

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:id="@+id/menu_wantsToRead" android:title="@string/wants_to_read"></item>
+    <item android:id="@+id/menu_alreadyRead" android:title="@string/already_read"></item>
+    
+
+</menu>
