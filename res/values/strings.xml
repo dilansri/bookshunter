@@ -19,5 +19,7 @@
     <string name="title_activity_search">Search Book</string>
     <string name="search_title">Search Books</string>
     <string name="search_hint">Title/Author/Description</string>
+    <string name="library_icon">Library</string>
+    <string name="settings_icon">Settings</string>
 
 </resources>

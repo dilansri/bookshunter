@@ -30,6 +30,7 @@
         <activity
             android:name="com.nsbm.bytecode.SuggetionsActivity"
             android:label="@string/title_activity_suggetions"
+            android:configChanges="orientation|keyboardHidden"
             android:parentActivityName="com.nsbm.bytecode.HomeActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -38,7 +39,8 @@
         <activity
             android:name="com.nsbm.bytecode.SearchActivity"
             android:label="@string/title_activity_search"
-            android:parentActivityName="com.nsbm.bytecode.HomeActivity" >
+            android:parentActivityName="com.nsbm.bytecode.HomeActivity"
+            android:configChanges="orientation|keyboardHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nsbm.bytecode.HomeActivity" />

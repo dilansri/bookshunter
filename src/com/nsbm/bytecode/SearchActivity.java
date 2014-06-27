@@ -87,7 +87,7 @@ public class SearchActivity extends Activity {
         @Override
         protected void onPreExecute() {       
             super.onPreExecute();
-            dialog.setMessage("Downloading books...");
+            dialog.setMessage("Searching books...");
             dialog.show();           
         }
         

@@ -79,7 +79,8 @@ public class SuggetionsActivity extends Activity {
 			//Log.v(getClass().getName(),""+ genresList[0]);
 			(new SuggetionBooksLoader()).execute(genresList);
 		}
-	}
+	}	
+	
 	
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
