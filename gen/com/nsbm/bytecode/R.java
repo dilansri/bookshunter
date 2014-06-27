@@ -35,25 +35,30 @@ public final class R {
         public static final int ic_suggestion=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f0b000c;
+        public static final int action_settings=0x7f0b0010;
         public static final int book_authors=0x7f0b0000;
         public static final int book_coverImage=0x7f0b0002;
         public static final int book_description=0x7f0b0003;
-        public static final int book_ratingBar=0x7f0b0009;
-        public static final int book_title=0x7f0b0008;
+        public static final int book_ratingBar=0x7f0b000d;
+        public static final int book_title=0x7f0b000c;
         public static final int imageView2=0x7f0b0005;
-        public static final int menu_alreadyRead=0x7f0b000b;
-        public static final int menu_wantsToRead=0x7f0b000a;
+        public static final int menu_alreadyRead=0x7f0b000f;
+        public static final int menu_wantsToRead=0x7f0b000e;
         public static final int search=0x7f0b0004;
-        public static final int suggestionList=0x7f0b0007;
+        public static final int searchButton=0x7f0b0009;
+        public static final int searchListView=0x7f0b000a;
+        public static final int searchText=0x7f0b0008;
+        public static final int suggestionList=0x7f0b000b;
         public static final int suggestions=0x7f0b0001;
-        public static final int suggetions_action_settings=0x7f0b000d;
+        public static final int suggetions_action_settings=0x7f0b0011;
+        public static final int textView1=0x7f0b0007;
         public static final int textView3=0x7f0b0006;
     }
     public static final class layout {
         public static final int activity_home=0x7f030000;
-        public static final int activity_suggetions=0x7f030001;
-        public static final int book_view=0x7f030002;
+        public static final int activity_search=0x7f030001;
+        public static final int activity_suggetions=0x7f030002;
+        public static final int book_view=0x7f030003;
     }
     public static final class menu {
         public static final int book_context_menu=0x7f0a0000;
@@ -70,9 +75,13 @@ public final class R {
         public static final int display_name_description=0x7f070007;
         public static final int genres=0x7f070009;
         public static final int genres_description=0x7f07000a;
+        public static final int guest=0x7f07000e;
         public static final int hello_world=0x7f070002;
         public static final int search=0x7f070005;
+        public static final int search_hint=0x7f070011;
+        public static final int search_title=0x7f070010;
         public static final int suggestions=0x7f070004;
+        public static final int title_activity_search=0x7f07000f;
         public static final int title_activity_suggetions=0x7f07000b;
         public static final int wants_to_read=0x7f07000c;
         public static final int welcome_message=0x7f070003;

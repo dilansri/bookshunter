@@ -90,8 +90,7 @@ public class SuggetionsActivity extends Activity {
 	}
 	
 	@Override
-	public boolean onContextItemSelected(MenuItem item) {
-	    AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+	public boolean onContextItemSelected(MenuItem item) {	    
 	    switch (item.getItemId()) {
 	        case R.id.menu_wantsToRead:
 	        	Toast.makeText(getApplicationContext(), "Added To Wants To Read List", 
@@ -209,7 +208,7 @@ public class SuggetionsActivity extends Activity {
 		            JSONObject responseJson = new JSONObject(responseString);
 		            
 		            GoogleBooksParser gParser = new GoogleBooksParser(responseJson);	            
-		            books.addAll(gParser.parse());
+		            books.addAll(gParser.parse(GoogleBooksParser.GENRE_RESULT_SIZE));
         		}
 	            
         	}catch(Throwable t){

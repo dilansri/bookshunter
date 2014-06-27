@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
-    <EditTextPreference android:summary="@string/display_name_description" android:title="@string/display_name" android:key="display_name"/>
+    <EditTextPreference android:summary="@string/display_name_description" android:title="@string/display_name" android:key="display_name" android:defaultValue="@string/guest"/>
     <CheckBoxPreference android:title="@string/cache_description" android:key="cache"/>
     <MultiSelectListPreference android:summary="@string/genres_description" android:entries="@array/genres" android:title="@string/genres" android:key="genres" android:entryValues="@array/genre_values"/>
     

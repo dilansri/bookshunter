@@ -35,6 +35,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nsbm.bytecode.HomeActivity" />
         </activity>
+        <activity
+            android:name="com.nsbm.bytecode.SearchActivity"
+            android:label="@string/title_activity_search"
+            android:parentActivityName="com.nsbm.bytecode.HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nsbm.bytecode.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>

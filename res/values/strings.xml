@@ -15,5 +15,9 @@
     <string name="title_activity_suggetions">Suggetions</string>
     <string name="wants_to_read">Wants To Read</string>
     <string name="already_read">Already Read</string>
+    <string name="guest">Guest</string>
+    <string name="title_activity_search">Search Book</string>
+    <string name="search_title">Search Books</string>
+    <string name="search_hint">Title/Author/Description</string>
 
 </resources>

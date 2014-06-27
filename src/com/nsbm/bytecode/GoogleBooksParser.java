@@ -22,6 +22,7 @@ public class GoogleBooksParser {
 	private int resultSize =0;
 	
 	public final static int GENRE_RESULT_SIZE = 5;
+	public final static int SEARCH_RESULT_SIZE = 20;
 	
 	public GoogleBooksParser(JSONObject res)
 	{
@@ -38,24 +39,43 @@ public class GoogleBooksParser {
 		this.response = response;
 	}
 
+	public int getResultSize() {
+		return resultSize;
+	}
+
 	public List<Book> getResultBooks() {
 		return resultBooks;
 	}
 	
-	public List<Book> parse(){		
-		int size = resultSize > GENRE_RESULT_SIZE ? GENRE_RESULT_SIZE : resultSize;
+	public List<Book> parse(int requiredSize){		
+		int size = resultSize > requiredSize ? requiredSize : resultSize;
+		
+		
 		
 		try{
 	        JSONArray itemsArray = response.getJSONArray("items");	        	        
 	        for(int i=0;i<size;i++){	
+	        	
+	        	String authors = "no author";
+	    		String description = "no description";
+	    		Float rating = 0F;
+	    		Bitmap image = null;
+	    		
 	        	JSONObject item = itemsArray.getJSONObject(i);
 	        	JSONObject volumeInfo = item.getJSONObject("volumeInfo");
 	        	String title = volumeInfo.optString("title");
-	        	String authors = volumeInfo.getJSONArray("authors").toString();
-	        	String description = volumeInfo.optString("description");
-	        	Float rating = (float) volumeInfo.optDouble("averageRating");
-	        	String imageUrl = volumeInfo.getJSONObject("imageLinks").optString("thumbnail");
-	        	Bitmap image = getImageFromUrl(imageUrl);
+	        	
+	        	if(volumeInfo.has("authors"))
+	        		authors = volumeInfo.getJSONArray("authors").toString();
+	        	if(volumeInfo.has("description"))
+	        		description = volumeInfo.optString("description");
+	        	if(volumeInfo.has("averageRating"))
+	        		rating = (float) volumeInfo.optDouble("averageRating");
+	        	
+	        	if(volumeInfo.has("imageLinks")){
+		        	String imageUrl = volumeInfo.getJSONObject("imageLinks").optString("thumbnail");
+		        	image = getImageFromUrl(imageUrl);
+	        	}
 	        	
 	        	Book bookItem = new Book(title,authors,description,rating,image);	        	
 	        	resultBooks.add(bookItem);

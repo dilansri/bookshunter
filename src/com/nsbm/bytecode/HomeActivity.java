@@ -39,8 +39,9 @@ public class HomeActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				Toast.makeText(getApplicationContext(), "Search",
-						Toast.LENGTH_SHORT).show();
+				Intent suggestionsActivity = new Intent(HomeActivity.this,SearchActivity.class);
+				startActivity(suggestionsActivity);
+				//Toast.makeText(getApplicationContext(), "Search",Toast.LENGTH_SHORT).show();
 			}
 		});		
 		
