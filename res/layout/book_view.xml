@@ -40,15 +40,14 @@
                     style="?android:attr/ratingBarStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_above="@+id/book_authors"
-                    android:layout_toRightOf="@+id/book_title" />
+                    android:layout_below="@+id/book_title" />
 
                 <TextView
                     android:id="@+id/book_authors"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:layout_below="@+id/book_title"
+                    android:layout_below="@+id/book_ratingBar"
                     android:text="Authors: George R. R. Martin"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:textSize="12dp" />
