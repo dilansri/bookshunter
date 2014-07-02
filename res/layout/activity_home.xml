@@ -97,7 +97,7 @@
         
 		<TableRow>
         <LinearLayout
-            android:id="@+id/suggestions"
+            android:id="@+id/library"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -108,14 +108,12 @@
             android:layout_marginRight="5dp">
 
             <ImageView
-                android:id="@+id/book_library"
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:background="#556b2f"
                 android:src="@drawable/book_library" />
 
             <TextView
-                android:id="@+id/library_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -126,7 +124,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/search"
+            android:id="@+id/settings"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -136,15 +134,13 @@
             android:padding="5dp"
             android:layout_marginLeft="5dp">
             
-            <ImageView
-                android:id="@+id/settings_icon_img"
+            <ImageView                
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:background="#b22222"
                 android:src="@drawable/sett" />
 
             <TextView
-                android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

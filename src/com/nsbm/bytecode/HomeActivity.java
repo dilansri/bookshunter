@@ -14,6 +14,8 @@ public class HomeActivity extends Activity {
 
 	LinearLayout suggestions;
 	LinearLayout search;
+	LinearLayout library;
+	LinearLayout settings;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,8 @@ public class HomeActivity extends Activity {
 		
 		suggestions = (LinearLayout) findViewById(R.id.suggestions);
 		search = (LinearLayout) findViewById(R.id.search);
+		library = (LinearLayout) findViewById(R.id.library);
+		settings = (LinearLayout) findViewById(R.id.settings);
 
 		suggestions.setOnClickListener(new View.OnClickListener() {
 
@@ -44,6 +48,28 @@ public class HomeActivity extends Activity {
 				//Toast.makeText(getApplicationContext(), "Search",Toast.LENGTH_SHORT).show();
 			}
 		});		
+		
+		library.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				//Intent suggestionsActivity = new Intent(HomeActivity.this,SearchActivity.class);
+				//startActivity(suggestionsActivity);
+				Toast.makeText(getApplicationContext(), "LIBRARY",Toast.LENGTH_SHORT).show();
+			}
+		});
+		
+		settings.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent settingsActivity = new Intent(HomeActivity.this,SettingsActivity.class);
+				startActivity(settingsActivity);
+				//Toast.makeText(getApplicationContext(), "LIBRARY",Toast.LENGTH_SHORT).show();
+			}
+		});
 		
 	}
 

@@ -8,8 +8,12 @@
         android:id="@+id/suggestionList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
-        android:divider="@android:color/transparent"
-    	android:dividerHeight="10dp">
+        android:divider="@null"
+        android:listSelector="@android:color/transparent" 
+        android:headerDividersEnabled="true"
+        android:footerDividersEnabled="true" 
+    	android:dividerHeight="10dp"
+    	android:cacheColorHint="@android:color/transparent" >
     </ListView>
     
 </LinearLayout>
