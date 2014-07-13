@@ -1,13 +1,18 @@
 package com.nsbm.bytecode;
 
 
-import android.os.Bundle;
+import com.nsbm.bytecode.R;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeActivity extends Activity {
@@ -16,6 +21,10 @@ public class HomeActivity extends Activity {
 	LinearLayout search;
 	LinearLayout library;
 	LinearLayout settings;
+	
+	TextView welcomeMessage;
+	
+	SharedPreferences prefs; 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +35,11 @@ public class HomeActivity extends Activity {
 		search = (LinearLayout) findViewById(R.id.search);
 		library = (LinearLayout) findViewById(R.id.library);
 		settings = (LinearLayout) findViewById(R.id.settings);
+		welcomeMessage = (TextView) findViewById(R.id.welcome_message);
+		
+		prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		
+		
 
 		suggestions.setOnClickListener(new View.OnClickListener() {
 
@@ -71,6 +85,12 @@ public class HomeActivity extends Activity {
 			}
 		});
 		
+	}
+	
+	@Override
+	public void onStart(){
+		super.onStart();
+		welcomeMessage.setText("Hello, "+prefs.getString("display_name", "Guest")+". "+getResources().getString(R.string.welcome_message));
 	}
 
 	@Override

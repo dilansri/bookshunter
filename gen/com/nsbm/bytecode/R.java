@@ -40,17 +40,17 @@ public final class R {
         public static final int sett=0x7f020008;
     }
     public static final class id {
-        public static final int action_settings=0x7f0b0014;
-        public static final int book_authors=0x7f0b0000;
+        public static final int action_settings=0x7f0b0015;
+        public static final int book_authors=0x7f0b0011;
         public static final int book_coverImage=0x7f0b000e;
-        public static final int book_description=0x7f0b0011;
+        public static final int book_description=0x7f0b0012;
         public static final int book_library=0x7f0b0002;
         public static final int book_ratingBar=0x7f0b0010;
         public static final int book_title=0x7f0b000f;
         public static final int library=0x7f0b0007;
         public static final int library_icon=0x7f0b0003;
-        public static final int menu_alreadyRead=0x7f0b0013;
-        public static final int menu_wantsToRead=0x7f0b0012;
+        public static final int menu_alreadyRead=0x7f0b0014;
+        public static final int menu_wantsToRead=0x7f0b0013;
         public static final int search=0x7f0b0004;
         public static final int searchButton=0x7f0b000b;
         public static final int searchListView=0x7f0b000c;
@@ -59,9 +59,10 @@ public final class R {
         public static final int settings_icon_img=0x7f0b0005;
         public static final int suggestionList=0x7f0b000d;
         public static final int suggestions=0x7f0b0001;
-        public static final int suggetions_action_settings=0x7f0b0015;
+        public static final int suggetions_action_settings=0x7f0b0016;
         public static final int textView1=0x7f0b0009;
         public static final int textView3=0x7f0b0006;
+        public static final int welcome_message=0x7f0b0000;
     }
     public static final class layout {
         public static final int activity_home=0x7f030000;

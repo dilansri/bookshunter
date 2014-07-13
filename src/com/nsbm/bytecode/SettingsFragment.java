@@ -1,5 +1,7 @@
 package com.nsbm.bytecode;
 
+import com.nsbm.bytecode.R;
+
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 

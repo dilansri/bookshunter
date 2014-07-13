@@ -9,9 +9,15 @@ import java.util.List;
 
 import org.json.JSONObject;
 
+import com.nsbm.bytecode.R;
+import com.nsbm.bytecode.data.BookContract.AlreadyReadEntry;
+import com.nsbm.bytecode.data.BookContract.WantsToReadEntry;
+import com.nsbm.bytecode.util.BookUtilities;
+
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +30,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 
 public class SearchActivity extends Activity {
 	
@@ -67,18 +74,35 @@ public class SearchActivity extends Activity {
 	
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {	    
+		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 	    switch (item.getItemId()) {
-	        case R.id.menu_wantsToRead:
-	        	Toast.makeText(getApplicationContext(), "Added To Wants To Read List", 
+	        case R.id.menu_wantsToRead:{
+	        	Book book = adapter.getItem(info.position);	 
+	        	addWantsToReadList(book);	        	
+	        	Toast.makeText(getApplicationContext(), book.getTitle()+" added To Wants To Read List", 
 						   Toast.LENGTH_LONG).show();
 	            return true;
-	        case R.id.menu_alreadyRead:
-	        	Toast.makeText(getApplicationContext(), "Added To Already Read List", 
+	        }
+	        case R.id.menu_alreadyRead:{
+	        	Book book = adapter.getItem(info.position);	 
+	        	addAlreadyReadList(book);
+	        	Toast.makeText(getApplicationContext(), book.getTitle()+" added To Already Read List", 
 						   Toast.LENGTH_LONG).show();
 	            return true;
+	        }
 	        default:
 	            return super.onContextItemSelected(item);
 	    }
+	}
+	
+	private void addAlreadyReadList(Book book) {
+		ContentValues values = BookUtilities.getContentValues(book);
+		getContentResolver().insert(WantsToReadEntry.CONTENT_URI, values);
+	}
+
+	private void addWantsToReadList(Book book) {
+		ContentValues values = BookUtilities.getContentValues(book);
+		getContentResolver().insert(AlreadyReadEntry.CONTENT_URI, values);
 	}
 	
 	private class SearchBooksLoader extends AsyncTask<String, Void, List<Book>> {

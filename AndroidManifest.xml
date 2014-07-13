@@ -45,6 +45,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nsbm.bytecode.HomeActivity" />
         </activity>
+        <provider
+            android:authorities="com.nsbm.bytecode.bookshunter"
+            android:name= ".data.BookProvider" />
     </application>
 
 </manifest>
