@@ -1,8 +1,6 @@
 package com.nsbm.bytecode;
 
 
-import com.nsbm.bytecode.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class HomeActivity extends Activity {
 
@@ -68,9 +65,9 @@ public class HomeActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				//Intent suggestionsActivity = new Intent(HomeActivity.this,SearchActivity.class);
-				//startActivity(suggestionsActivity);
-				Toast.makeText(getApplicationContext(), "LIBRARY",Toast.LENGTH_SHORT).show();
+				Intent libraryActivity = new Intent(HomeActivity.this,LibraryActivity.class);
+				startActivity(libraryActivity);
+				//Toast.makeText(getApplicationContext(), "LIBRARY",Toast.LENGTH_SHORT).show();
 			}
 		});
 		

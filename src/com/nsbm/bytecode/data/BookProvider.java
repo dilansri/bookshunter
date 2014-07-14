@@ -70,7 +70,15 @@ public class BookProvider extends ContentProvider {
 			
 			case WANTS_TO_READ_BOOK :
 			{
-				retCursor = null;
+				retCursor = mOpenHelper.getReadableDatabase().query(
+						BookContract.WantsToReadEntry.TABLE_NAME,
+						projection,
+						selection,
+						selectionArgs,
+						null,
+						null,
+						sortOrder
+					);
 				break;
 			}
 			
@@ -106,7 +114,12 @@ public class BookProvider extends ContentProvider {
 			}
 			case WANTS_TO_READ_BOOK:
 			{
-				returnUri = null;
+				long _id = db.insert(BookContract.WantsToReadEntry.TABLE_NAME, null, contentValues);
+				
+				if(_id > 0)
+					returnUri = BookContract.WantsToReadEntry.buildWantsToReadUri(_id);
+				else
+					throw new android.database.SQLException("Failed to insert row into "+uri);
 				break;
 			}
 			default:

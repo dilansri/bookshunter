@@ -9,12 +9,6 @@ import java.util.List;
 
 import org.json.JSONObject;
 
-import com.nsbm.bytecode.R;
-import com.nsbm.bytecode.data.BookContract.AlreadyReadEntry;
-import com.nsbm.bytecode.data.BookContract.WantsToReadEntry;
-import com.nsbm.bytecode.util.BookUtilities;
-
-
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentValues;
@@ -22,15 +16,19 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.widget.AdapterView.AdapterContextMenuInfo;
+
+import com.nsbm.bytecode.data.BookContract.AlreadyReadEntry;
+import com.nsbm.bytecode.data.BookContract.WantsToReadEntry;
+import com.nsbm.bytecode.util.BookUtilities;
 
 public class SearchActivity extends Activity {
 	

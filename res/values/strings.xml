@@ -21,5 +21,8 @@
     <string name="search_hint">Title/Author/Description</string>
     <string name="library_icon">Library</string>
     <string name="settings_icon">Settings</string>
+    <string name="title_activity_library">Library </string>
+    <string name="title_section1">Already Read</string>
+    <string name="title_section2">Wants To Read</string>
 
 </resources>

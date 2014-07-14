@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/app_background"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wants To Read"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ListView
+        android:id="@+id/wantsToReadList"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" 
+        android:divider="@null"
+        android:listSelector="@android:color/transparent" 
+        android:headerDividersEnabled="true"
+        android:footerDividersEnabled="true" 
+    	android:dividerHeight="10dp"
+    	android:cacheColorHint="@android:color/transparent" >
+    </ListView>
+    
+</LinearLayout>
