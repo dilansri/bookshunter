@@ -9,12 +9,19 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.nsbm.bytecode.data.BookContract;
+import com.nsbm.bytecode.data.BookContract.AlreadyReadEntry;
 
 public class AlreadyReadFragment extends Fragment implements LoaderCallbacks<Cursor> {
 	
@@ -64,7 +71,6 @@ public class AlreadyReadFragment extends Fragment implements LoaderCallbacks<Cur
 	}
 	
 	
-	
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -78,11 +84,11 @@ public class AlreadyReadFragment extends Fragment implements LoaderCallbacks<Cur
 				R.layout.book_view,
 				null,
 				new String[]{
-					BookContract.WantsToReadEntry.COLUMN_TITLE,
-					BookContract.WantsToReadEntry.COLUMN_AUTHORS,
-					BookContract.WantsToReadEntry.COLUMN_DESCRIPTION,
-					BookContract.WantsToReadEntry.COLUMN_RATING,
-					BookContract.WantsToReadEntry.COLUMN_IMAGE
+					BookContract.AlreadyReadEntry.COLUMN_TITLE,
+					BookContract.AlreadyReadEntry.COLUMN_AUTHORS,
+					BookContract.AlreadyReadEntry.COLUMN_DESCRIPTION,
+					BookContract.AlreadyReadEntry.COLUMN_RATING,
+					BookContract.AlreadyReadEntry.COLUMN_IMAGE
 				},
 				new int[]{
 					R.id.book_title,
@@ -96,8 +102,36 @@ public class AlreadyReadFragment extends Fragment implements LoaderCallbacks<Cur
 		mAlreadyReadAdapter.setViewBinder(new AlreadyReadBookViewBinder());
 		
 		ListView listView = (ListView) rootView.findViewById(R.id.alreadyReadList);
+		registerForContextMenu(listView);
 		listView.setAdapter(mAlreadyReadAdapter);
+		
 		return rootView;
+	}
+	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+	                                ContextMenuInfo menuInfo){
+		super.onCreateContextMenu(menu, v, menuInfo);
+	    MenuInflater inflater = getActivity().getMenuInflater();
+	    inflater.inflate(R.menu.library_book_already_context_menu, menu);
+	}
+	
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();		
+	    switch (item.getItemId()) {
+	        case R.id.menu_libraryAlreadyRemove:{	
+	        	Cursor cursor = (Cursor)mAlreadyReadAdapter.getItem(info.position);
+	        	long id = cursor.getLong(COL_BOOK_ID);
+	        	Uri uri = AlreadyReadEntry.buildAlreadyReadReadUri(id);
+	        	getActivity().getContentResolver().delete(uri, AlreadyReadEntry.TABLE_NAME+"._ID=?",new String[]{Long.toString(id)});
+	        	Toast.makeText(getActivity().getApplicationContext(),cursor.getString(COL_BOOK_TITLE)+" removed from the library", 
+						   Toast.LENGTH_LONG).show();
+	            return true;
+	        }
+	        default:
+	            return super.onContextItemSelected(item);
+	    }
 	}
 
 	@Override

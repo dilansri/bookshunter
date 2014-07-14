@@ -129,9 +129,22 @@ public class BookProvider extends ContentProvider {
 	}
 
 	@Override
-	public int delete(Uri arg0, String arg1, String[] arg2) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int delete(Uri uri, String where, String[] whereArgs) {
+		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+		int count = 0;
+		switch(sUriMatcher.match(uri)){
+			case ALREADY_READ_BOOK_ID:{
+				count = db.delete(BookContract.AlreadyReadEntry.TABLE_NAME, where, whereArgs);
+				break;
+			}
+			case WANTS_TO_READ_BOOK_ID:{
+				count = db.delete(BookContract.WantsToReadEntry.TABLE_NAME, where, whereArgs);
+				break;
+			}
+		}		
+		getContext().getContentResolver().notifyChange(uri, null);		
+		
+		return count;
 	}
 
 	

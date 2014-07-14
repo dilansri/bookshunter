@@ -9,12 +9,20 @@ import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.widget.ListView;
+import android.widget.Toast;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 
 import com.nsbm.bytecode.data.BookContract;
+import com.nsbm.bytecode.data.BookContract.AlreadyReadEntry;
+import com.nsbm.bytecode.data.BookContract.WantsToReadEntry;
 
 public class WantsToReadFragment extends Fragment implements LoaderCallbacks<Cursor> {
 	
@@ -96,8 +104,37 @@ public class WantsToReadFragment extends Fragment implements LoaderCallbacks<Cur
 		mWantsToReadAdapter.setViewBinder(new WantsToReadBookViewBinder());
 		
 		ListView listView = (ListView) rootView.findViewById(R.id.wantsToReadList);
+		registerForContextMenu(listView);
 		listView.setAdapter(mWantsToReadAdapter);
+		
 		return rootView;
+	}
+	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+	                                ContextMenuInfo menuInfo){
+		super.onCreateContextMenu(menu, v, menuInfo);
+	    MenuInflater inflater = getActivity().getMenuInflater();
+	    inflater.inflate(R.menu.library_book_wants_context_menu, menu);
+	}
+	
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();		
+	    switch (item.getItemId()) {
+	        case R.id.menu_libraryWantsRemove:{		        	
+	        	Cursor cursor = (Cursor)mWantsToReadAdapter.getItem(info.position);
+	        	long id = cursor.getLong(COL_BOOK_ID);
+	        	Uri uri = WantsToReadEntry.buildWantsToReadUri(id);
+	        	Log.d("WANTSTOREAD DELETE","URI:"+uri);
+	        	getActivity().getContentResolver().delete(uri, WantsToReadEntry.TABLE_NAME+"._ID=?",new String[]{Long.toString(id)});
+	        	Toast.makeText(getActivity().getApplicationContext(),cursor.getString(COL_BOOK_TITLE)+" removed from the library", 
+						   Toast.LENGTH_LONG).show();
+	            return true;
+	        }
+	        default:
+	            return super.onContextItemSelected(item);
+	    }
 	}
 
 	@Override

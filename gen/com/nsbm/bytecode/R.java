@@ -51,6 +51,8 @@ public final class R {
         public static final int library=0x7f0b0007;
         public static final int library_icon=0x7f0b0003;
         public static final int menu_alreadyRead=0x7f0b0018;
+        public static final int menu_libraryAlreadyRemove=0x7f0b001a;
+        public static final int menu_libraryWantsRemove=0x7f0b001b;
         public static final int menu_wantsToRead=0x7f0b0017;
         public static final int pager=0x7f0b0009;
         public static final int search=0x7f0b0004;
@@ -62,7 +64,7 @@ public final class R {
         public static final int settings_icon_img=0x7f0b0005;
         public static final int suggestionList=0x7f0b000e;
         public static final int suggestions=0x7f0b0001;
-        public static final int suggetions_action_settings=0x7f0b001a;
+        public static final int suggetions_action_settings=0x7f0b001c;
         public static final int textView1=0x7f0b000a;
         public static final int textView3=0x7f0b0006;
         public static final int wantsToReadList=0x7f0b0016;
@@ -82,8 +84,10 @@ public final class R {
         public static final int book_context_menu=0x7f0a0000;
         public static final int home=0x7f0a0001;
         public static final int library=0x7f0a0002;
-        public static final int main=0x7f0a0003;
-        public static final int suggetions=0x7f0a0004;
+        public static final int library_book_already_context_menu=0x7f0a0003;
+        public static final int library_book_wants_context_menu=0x7f0a0004;
+        public static final int main=0x7f0a0005;
+        public static final int suggetions=0x7f0a0006;
     }
     public static final class string {
         public static final int action_settings=0x7f070001;
@@ -97,6 +101,7 @@ public final class R {
         public static final int guest=0x7f07000e;
         public static final int hello_world=0x7f070002;
         public static final int library_icon=0x7f070012;
+        public static final int library_remove=0x7f070017;
         public static final int search=0x7f070005;
         public static final int search_hint=0x7f070011;
         public static final int search_title=0x7f070010;

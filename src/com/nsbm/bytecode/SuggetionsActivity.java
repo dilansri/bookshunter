@@ -74,13 +74,13 @@ public class SuggetionsActivity extends Activity {
 		try{
 			genresList = genresSet.toArray(new String[]{});
 		}catch(NullPointerException npe){
-			Toast.makeText(getApplicationContext(), "Please select your book genres", 
+			Toast.makeText(getApplicationContext(), "Please select your book genres from settings", 
 					   Toast.LENGTH_LONG).show();
 			return;
 		}
 		//Log.v(getClass().getName(),""+ genresList.length);
 		if(genresList.length <= 0){
-			Toast.makeText(getApplicationContext(), "Please select your book genres", 
+			Toast.makeText(getApplicationContext(), "Please select your book genres from settings", 
 					   Toast.LENGTH_LONG).show();
 			return;
 		}else{
@@ -255,7 +255,7 @@ public class SuggetionsActivity extends Activity {
 			
 			for(int i=0;i<params.length;i++)
 			{
-				url[i] = "https://www.googleapis.com/books/v1/volumes?q=subject:"+params[i]+"&maxResults="+GoogleBooksParser.GENRE_RESULT_SIZE+"&orderBy=newest&startIndex="+rand.nextInt(500);
+				url[i] = "https://www.googleapis.com/books/v1/volumes?q=subject:"+params[i]+"&maxResults="+GoogleBooksParser.GENRE_RESULT_SIZE+"&orderBy=newest&startIndex="+rand.nextInt(20);
 			}
 			return url;
 		}
