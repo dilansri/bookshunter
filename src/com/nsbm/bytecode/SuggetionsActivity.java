@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 import org.json.JSONObject;
@@ -250,9 +251,11 @@ public class SuggetionsActivity extends Activity {
 		private String[] prepareGoogleBooksURLs(String[] params) {
 			String[] url = new String[params.length];
 			
+			Random rand = new Random();
+			
 			for(int i=0;i<params.length;i++)
 			{
-				url[i] = "https://www.googleapis.com/books/v1/volumes?q=subject:"+params[i]+"&maxResults="+GoogleBooksParser.GENRE_RESULT_SIZE+"&orderBy=newest";
+				url[i] = "https://www.googleapis.com/books/v1/volumes?q=subject:"+params[i]+"&maxResults="+GoogleBooksParser.GENRE_RESULT_SIZE+"&orderBy=newest&startIndex="+rand.nextInt(500);
 			}
 			return url;
 		}
