@@ -65,8 +65,18 @@ public class GoogleBooksParser {
 	        	JSONObject volumeInfo = item.getJSONObject("volumeInfo");
 	        	String title = volumeInfo.optString("title");
 	        	
-	        	if(volumeInfo.has("authors"))
-	        		authors = volumeInfo.getJSONArray("authors").toString();
+	        	if(volumeInfo.has("authors")){
+	        		authors = "";
+	        		JSONArray authorsArray = volumeInfo.getJSONArray("authors");
+	        		for(int j=0;j<authorsArray.length();j++)
+	        		{
+	        			if(j != 0)
+	        				authors += ", " + authorsArray.getString(j);
+	        			else
+	        				authors += authorsArray.getString(j);
+	        		}
+	        		
+	        	}
 	        	if(volumeInfo.has("description"))
 	        		description = volumeInfo.optString("description");
 	        	if(volumeInfo.has("averageRating"))

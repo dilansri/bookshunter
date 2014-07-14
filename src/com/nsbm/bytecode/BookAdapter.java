@@ -68,7 +68,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
 		
 		title.setText(currentBook.getTitle());
 		rating.setRating(currentBook.getRating());
-		authors.setText(currentBook.getAuthors());
+		authors.setText("by: "+currentBook.getAuthors());
 		description.setText(currentBook.getDescription());
 		
 		return bookView;

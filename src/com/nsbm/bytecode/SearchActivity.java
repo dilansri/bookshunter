@@ -95,12 +95,12 @@ public class SearchActivity extends Activity {
 	
 	private void addAlreadyReadList(Book book) {
 		ContentValues values = BookUtilities.getContentValues(book);
-		getContentResolver().insert(WantsToReadEntry.CONTENT_URI, values);
+		getContentResolver().insert(AlreadyReadEntry.CONTENT_URI, values);
 	}
 
 	private void addWantsToReadList(Book book) {
 		ContentValues values = BookUtilities.getContentValues(book);
-		getContentResolver().insert(AlreadyReadEntry.CONTENT_URI, values);
+		getContentResolver().insert(WantsToReadEntry.CONTENT_URI, values);
 	}
 	
 	private class SearchBooksLoader extends AsyncTask<String, Void, List<Book>> {
