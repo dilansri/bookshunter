@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@color/app_background" >
+
+    <TextView
+        android:id="@+id/welcome_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/welcome_message"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:baselineAligned="false"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+        
+		<TableRow>
+        <LinearLayout
+            android:id="@+id/suggestions"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="#FFF"
+            android:clickable="true"
+            android:padding="5dp"
+            android:layout_marginRight="5dp">
+
+            <ImageView
+                android:id="@+id/book_library"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="#4682b4"
+                android:src="@drawable/light_bulb_icon" />
+
+            <TextView
+                android:id="@+id/library_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/suggestions"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#4682b4" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="#FFF"
+            android:clickable="true"
+            android:padding="5dp"
+            android:layout_marginLeft="5dp">
+            
+            <ImageView
+                android:id="@+id/settings_icon_img"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="#daa520"
+                android:src="@drawable/search_icon" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/search"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#daa520" />
+
+        </LinearLayout>
+	<LinearLayout android:id="@+id/library" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:background="#FFF" android:clickable="true" android:padding="5dp" android:layout_marginRight="5dp">
+
+            <ImageView android:layout_width="match_parent" android:layout_height="140dp" android:background="#556b2f" android:src="@drawable/book_library" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="@string/library_icon" android:textAppearance="?android:attr/textAppearanceMedium" android:textColor="#556b2f" />
+
+        </LinearLayout><LinearLayout android:id="@+id/settings" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:orientation="vertical" android:background="#FFF" android:clickable="true" android:padding="5dp" android:layout_marginLeft="5dp">
+            
+            <ImageView android:layout_width="match_parent" android:layout_height="140dp" android:background="#b22222" android:src="@drawable/sett" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:text="@string/settings_icon" android:textAppearance="?android:attr/textAppearanceMedium" android:textColor="#b22222" />
+
+        </LinearLayout></TableRow>
+	</TableLayout>
+	
+     
+     
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:baselineAligned="false"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+        
+		<TableRow>
+        
+
+        
+	</TableRow>
+	
+	</TableLayout>
+
+</LinearLayout>
