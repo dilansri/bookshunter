@@ -121,7 +121,7 @@ public class LibraryActivity extends FragmentActivity implements
 			//fragment.setArguments(args);
 			switch (position) {
 			case 0:
-				return new WantsToReadFragment();
+				return new AlreadyReadFragment();
 			case 1:
 				return new WantsToReadFragment();
 			}

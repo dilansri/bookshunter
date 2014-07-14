@@ -9,7 +9,7 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wants To Read"
+        android:text="Wants To Read Books"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ListView

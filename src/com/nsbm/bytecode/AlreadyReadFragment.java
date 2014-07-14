@@ -16,19 +16,19 @@ import android.widget.ListView;
 
 import com.nsbm.bytecode.data.BookContract;
 
-public class WantsToReadFragment extends Fragment implements LoaderCallbacks<Cursor> {
+public class AlreadyReadFragment extends Fragment implements LoaderCallbacks<Cursor> {
 	
-	private SimpleCursorAdapter mWantsToReadAdapter;
+	private SimpleCursorAdapter mAlreadyReadAdapter;
 	
-	private static final int WANTS_TO_READ_LOADER = 0;
+	private static final int ALREADY_READ_LOADER = 0;
 	
-	private static final String[] WANTS_TO_READ_COLUMNS = {
-		BookContract.WantsToReadEntry.TABLE_NAME + "." + BookContract.WantsToReadEntry._ID,
-		BookContract.WantsToReadEntry.COLUMN_TITLE,
-		BookContract.WantsToReadEntry.COLUMN_AUTHORS,
-		BookContract.WantsToReadEntry.COLUMN_DESCRIPTION,
-		BookContract.WantsToReadEntry.COLUMN_RATING,
-		BookContract.WantsToReadEntry.COLUMN_IMAGE
+	private static final String[] ALREADY_READ_COLUMNS = {
+		BookContract.AlreadyReadEntry.TABLE_NAME + "." + BookContract.WantsToReadEntry._ID,
+		BookContract.AlreadyReadEntry.COLUMN_TITLE,
+		BookContract.AlreadyReadEntry.COLUMN_AUTHORS,
+		BookContract.AlreadyReadEntry.COLUMN_DESCRIPTION,
+		BookContract.AlreadyReadEntry.COLUMN_RATING,
+		BookContract.AlreadyReadEntry.COLUMN_IMAGE
 	};
 	
 	public static final int COL_BOOK_ID = 0;
@@ -42,21 +42,21 @@ public class WantsToReadFragment extends Fragment implements LoaderCallbacks<Cur
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState){
 		super.onActivityCreated(savedInstanceState);
-		getLoaderManager().initLoader(WANTS_TO_READ_LOADER, null, this);
+		getLoaderManager().initLoader(ALREADY_READ_LOADER, null, this);
 	}
 
 	@Override
 	public Loader<Cursor> onCreateLoader(int id, Bundle args) {
 		
-		Uri uri = BookContract.WantsToReadEntry.CONTENT_URI;
-		String sortOrder = BookContract.WantsToReadEntry._ID + " DESC";
+		Uri uri = BookContract.AlreadyReadEntry.CONTENT_URI;
+		String sortOrder = BookContract.AlreadyReadEntry._ID + " DESC";
 		
-		Log.d("WantsToReadFragment","URI: "+uri.toString());
+		Log.d("AlreadyReadFragment","URI: "+uri.toString());
 		
 		return new CursorLoader(
 				getActivity(),
 				uri,
-				WANTS_TO_READ_COLUMNS,
+				ALREADY_READ_COLUMNS,
 				null,
 				null,
 				sortOrder
@@ -70,10 +70,10 @@ public class WantsToReadFragment extends Fragment implements LoaderCallbacks<Cur
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		
-		View rootView = inflater.inflate(R.layout.wants_to_read,
+		View rootView = inflater.inflate(R.layout.already_read,
 				container, false);
 		
-		mWantsToReadAdapter = new SimpleCursorAdapter(
+		mAlreadyReadAdapter = new SimpleCursorAdapter(
 				getActivity(),
 				R.layout.book_view,
 				null,
@@ -93,21 +93,21 @@ public class WantsToReadFragment extends Fragment implements LoaderCallbacks<Cur
 				},
 				0
 				);
-		mWantsToReadAdapter.setViewBinder(new WantsToReadBookViewBinder());
+		mAlreadyReadAdapter.setViewBinder(new AlreadyReadBookViewBinder());
 		
-		ListView listView = (ListView) rootView.findViewById(R.id.wantsToReadList);
-		listView.setAdapter(mWantsToReadAdapter);
+		ListView listView = (ListView) rootView.findViewById(R.id.alreadyReadList);
+		listView.setAdapter(mAlreadyReadAdapter);
 		return rootView;
 	}
 
 	@Override
 	public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-		mWantsToReadAdapter.swapCursor(data);		
+		mAlreadyReadAdapter.swapCursor(data);		
 	}
 
 	@Override
 	public void onLoaderReset(Loader<Cursor> loader) {
-		mWantsToReadAdapter.swapCursor(null);
+		mAlreadyReadAdapter.swapCursor(null);
 		
 	}
 

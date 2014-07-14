@@ -10,13 +10,15 @@ import android.widget.RatingBar;
 
 import com.nsbm.bytecode.data.BookContract;
 
-public class WantsToReadBookViewBinder implements SimpleCursorAdapter.ViewBinder {
+public class AlreadyReadBookViewBinder implements SimpleCursorAdapter.ViewBinder {
 
 	@Override
 	public boolean setViewValue(View view, Cursor cursor, int columnIndex) {
-		if (columnIndex == cursor.getColumnIndex(BookContract.WantsToReadEntry.COLUMN_IMAGE)){
+		if (columnIndex == cursor.getColumnIndex(BookContract.AlreadyReadEntry.COLUMN_IMAGE)){
 			byte[] imgBytes = cursor.getBlob(columnIndex);
-			Bitmap imageBitmap = BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.length);
+			Bitmap imageBitmap = null;
+			if(imgBytes != null)
+				imageBitmap = BitmapFactory.decodeByteArray(imgBytes, 0, imgBytes.length);
 			ImageView coverImage = (ImageView) view.findViewById(R.id.book_coverImage);
 			if( imageBitmap != null){
 				coverImage.setImageBitmap(imageBitmap);
@@ -24,10 +26,10 @@ public class WantsToReadBookViewBinder implements SimpleCursorAdapter.ViewBinder
 				coverImage.setImageResource(R.drawable.ic_book);
 			}
 			
-			Log.d("ViewBinder",columnIndex+":index");
+			Log.d("AlreadyRead ViewBinder",columnIndex+":index");
 			
 			return true;
-		}else if(columnIndex == cursor.getColumnIndex(BookContract.WantsToReadEntry.COLUMN_RATING)){
+		}else if(columnIndex == cursor.getColumnIndex(BookContract.AlreadyReadEntry.COLUMN_RATING)){
 			float rating = cursor.getFloat(columnIndex);
 			RatingBar ratingBar = (RatingBar)view.findViewById(R.id.book_ratingBar);
 			ratingBar.setRating(rating);
