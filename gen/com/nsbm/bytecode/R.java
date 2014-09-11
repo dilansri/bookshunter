@@ -91,7 +91,9 @@ public final class R {
     }
     public static final class string {
         public static final int action_settings=0x7f070001;
+        public static final int already_library=0x7f07001b;
         public static final int already_read=0x7f07000d;
+        public static final int already_read_add=0x7f07001a;
         public static final int app_name=0x7f070000;
         public static final int cache_description=0x7f070008;
         public static final int display_name=0x7f070006;
@@ -105,6 +107,7 @@ public final class R {
         public static final int search=0x7f070005;
         public static final int search_hint=0x7f070011;
         public static final int search_title=0x7f070010;
+        public static final int select_genres=0x7f070018;
         public static final int settings_icon=0x7f070013;
         public static final int suggestions=0x7f070004;
         public static final int title_activity_library=0x7f070014;
@@ -112,7 +115,9 @@ public final class R {
         public static final int title_activity_suggetions=0x7f07000b;
         public static final int title_section1=0x7f070015;
         public static final int title_section2=0x7f070016;
+        public static final int wants_to_library=0x7f07001c;
         public static final int wants_to_read=0x7f07000c;
+        public static final int wants_to_read_add=0x7f070019;
         public static final int welcome_message=0x7f070003;
     }
     public static final class style {

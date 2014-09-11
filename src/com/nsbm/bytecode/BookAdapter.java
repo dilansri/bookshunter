@@ -12,6 +12,10 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+/**
+ * Array adapter used for binding data to list views of suggested and search book activities.
+ *
+ */
 public class BookAdapter extends ArrayAdapter<Book> {
 	
 	Context context;

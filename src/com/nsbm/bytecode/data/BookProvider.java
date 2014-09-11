@@ -7,6 +7,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 
+/**
+ * Content Provider to query, insert , and delete books from the local storage.
+ * @author Dilan
+ *
+ */
 public class BookProvider extends ContentProvider {
 	
 	private static final int ALREADY_READ_BOOK = 100;

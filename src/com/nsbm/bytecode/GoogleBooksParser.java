@@ -15,6 +15,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
+/**
+ * Parsing the JSON result returned from Google Books API.
+ * @author Dilan
+ *
+ */
 public class GoogleBooksParser {
 	
 	private JSONObject response;
@@ -47,6 +52,10 @@ public class GoogleBooksParser {
 		return resultBooks;
 	}
 	
+	/**
+	 * @param requiredSize size of the Books Needed
+	 * @return List of books objects
+	 */
 	public List<Book> parse(int requiredSize){		
 		int size = resultSize > requiredSize ? requiredSize : resultSize;
 		

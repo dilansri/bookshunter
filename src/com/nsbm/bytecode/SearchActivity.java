@@ -30,6 +30,14 @@ import com.nsbm.bytecode.data.BookContract.AlreadyReadEntry;
 import com.nsbm.bytecode.data.BookContract.WantsToReadEntry;
 import com.nsbm.bytecode.util.BookUtilities;
 
+/**
+ * Searching books activity.
+ * Query text will be passed to Google Books API and results will be parsed using Google Books Parser. * 
+ *  
+ * Long click on displayed book item will show the context menu to save books.
+ * 
+ * Books are inserted to local database using Content Provider insert method.
+ */
 public class SearchActivity extends Activity {
 	
 	List<Book> books = new ArrayList<Book>();
@@ -77,14 +85,14 @@ public class SearchActivity extends Activity {
 	        case R.id.menu_wantsToRead:{
 	        	Book book = adapter.getItem(info.position);	 
 	        	addWantsToReadList(book);	        	
-	        	Toast.makeText(getApplicationContext(), book.getTitle()+" added To Wants To Read List", 
+	        	Toast.makeText(getApplicationContext(), book.getTitle()+" "+getResources().getString(R.string.wants_to_read_add), 
 						   Toast.LENGTH_LONG).show();
 	            return true;
 	        }
 	        case R.id.menu_alreadyRead:{
 	        	Book book = adapter.getItem(info.position);	 
 	        	addAlreadyReadList(book);
-	        	Toast.makeText(getApplicationContext(), book.getTitle()+" added To Already Read List", 
+	        	Toast.makeText(getApplicationContext(), book.getTitle()+" " + getResources().getString(R.string.already_read_add), 
 						   Toast.LENGTH_LONG).show();
 	            return true;
 	        }

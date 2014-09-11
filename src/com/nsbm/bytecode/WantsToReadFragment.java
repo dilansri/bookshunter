@@ -23,7 +23,14 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import com.nsbm.bytecode.data.BookContract;
 import com.nsbm.bytecode.data.BookContract.AlreadyReadEntry;
 import com.nsbm.bytecode.data.BookContract.WantsToReadEntry;
-
+/**
+ * Shows the wants to read books list.
+ * Fragments support libraries are used.
+ * Books are taken from local database using a Content Provider.
+ * 
+ * Long click in book item will allow to remove the book from the list.
+ *
+ */
 public class WantsToReadFragment extends Fragment implements LoaderCallbacks<Cursor> {
 	
 	private SimpleCursorAdapter mWantsToReadAdapter;

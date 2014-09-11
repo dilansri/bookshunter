@@ -12,6 +12,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**
+ * Startup activity. Displays four icons to the app.
+ *
+ */
 public class HomeActivity extends Activity {
 
 	LinearLayout suggestions;

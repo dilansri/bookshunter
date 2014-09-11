@@ -37,6 +37,14 @@ import com.nsbm.bytecode.data.BookContract.AlreadyReadEntry;
 import com.nsbm.bytecode.data.BookContract.WantsToReadEntry;
 import com.nsbm.bytecode.util.BookUtilities;
 
+/**
+ * Suggestion book activity will be populated from automated queries
+ * based on users favorite genres selected in settings menu.
+ * 
+ * Long click on displayed book will display its context menu to
+ * save the book in library lists.
+ *
+ */
 public class SuggetionsActivity extends Activity {
 	
 	List<Book> books = new ArrayList<Book>();
@@ -74,13 +82,13 @@ public class SuggetionsActivity extends Activity {
 		try{
 			genresList = genresSet.toArray(new String[]{});
 		}catch(NullPointerException npe){
-			Toast.makeText(getApplicationContext(), "Please select your book genres from settings", 
+			Toast.makeText(getApplicationContext(), getResources().getString(R.string.select_genres), 
 					   Toast.LENGTH_LONG).show();
 			return;
 		}
 		//Log.v(getClass().getName(),""+ genresList.length);
 		if(genresList.length <= 0){
-			Toast.makeText(getApplicationContext(), "Please select your book genres from settings", 
+			Toast.makeText(getApplicationContext(), getResources().getString(R.string.select_genres), 
 					   Toast.LENGTH_LONG).show();
 			return;
 		}else{
@@ -105,14 +113,14 @@ public class SuggetionsActivity extends Activity {
 	        case R.id.menu_wantsToRead:{
 	        	Book book = adapter.getItem(info.position);	 
 	        	addWantsToReadList(book);
-	        	Toast.makeText(getApplicationContext(), book.getTitle()+" added To Wants To Read List", 
+	        	Toast.makeText(getApplicationContext(), book.getTitle()+" "+ getResources().getString(R.string.wants_to_read_add), 
 						   Toast.LENGTH_LONG).show();
 	            return true;
 	        }
 	        case R.id.menu_alreadyRead:{
 	        	Book book = adapter.getItem(info.position);	 
 	        	addAlreadyReadList(book);
-	        	Toast.makeText(getApplicationContext(), book.getTitle()+" added To Already Read List", 
+	        	Toast.makeText(getApplicationContext(), book.getTitle()+" " + getResources().getString(R.string.already_read_add), 
 						   Toast.LENGTH_LONG).show();
 	            return true;
 	        }

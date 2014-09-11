@@ -22,7 +22,14 @@ import android.widget.Toast;
 
 import com.nsbm.bytecode.data.BookContract;
 import com.nsbm.bytecode.data.BookContract.AlreadyReadEntry;
-
+/**
+ * The fragment representing the already read books.
+ * 
+ * Books are taken from local database using a Content Provider.
+ * 
+ * Includes implemented cursor to get data from Content Provider. 
+ *
+ */
 public class AlreadyReadFragment extends Fragment implements LoaderCallbacks<Cursor> {
 	
 	private SimpleCursorAdapter mAlreadyReadAdapter;

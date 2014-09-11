@@ -2,10 +2,20 @@
 <resources>
     <string-array name="genres">
 		<item>Novels</item>
+		<item>Biography</item>
 		<item>Mystery</item>
+		<item>Adventure</item>
+		<item>Fantasy</item>
+		<item>Horror</item>
 		<item>Sci-Fi</item>
+		<item>Classic</item>
 		<item>Romance</item>
-		<item>Drama</item>
+		<item>Drama</item>	
+		<item>Poetry</item>	
+		<item>Cookbook</item>
+		<item>Journal</item>
+		<item>History</item>
+		<item>Travel</item>
 		<item>Agriculture</item>
 		<item>Mathematics</item>
 		<item>Physics</item>
@@ -14,17 +24,29 @@
 		<item>Finance</item>
 		<item>Business</item>
 		<item>Marketing</item>
+		<item>Law</item>
 		<item>Art</item>
+		<item>Politics</item>
 		<item>Science</item>
 		<item>Technology</item>
 		<item>Food</item>		
 	</string-array>
 	<string-array name="genre_values">
 		<item>novels</item>
+		<item>biography</item>
 		<item>mystery</item>
+		<item>adventure</item>
+		<item>fantasy</item>
+		<item>horror</item>
 		<item>science+fiction</item>
+		<item>classic</item>
 		<item>romance</item>
 		<item>drama</item>
+		<item>poetry</item>
+		<item>cookbook</item>
+		<item>journal</item>
+		<item>history</item>
+		<item>travel</item>
 		<item>agriculture</item>
 		<item>mathematics</item>
 		<item>physics</item>
@@ -33,7 +55,9 @@
 		<item>finance</item>
 		<item>business</item>
 		<item>marketing</item>
+		<item>law</item>
 		<item>art</item>
+		<item>politics</item>
 		<item>science</item>
 		<item>technology</item>
 		<item>food</item>

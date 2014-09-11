@@ -9,7 +9,9 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wants To Read Books"
+        android:text="@string/wants_to_library"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ListView

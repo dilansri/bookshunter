@@ -7,6 +7,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import com.nsbm.bytecode.data.BookContract.AlreadyReadEntry;
 import com.nsbm.bytecode.data.BookContract.WantsToReadEntry;
 
+/**
+ * Creating SQLite database with two tables.
+ *
+ */
 public class BookDbHelper extends SQLiteOpenHelper {
 	
 	private static final int DATABASE_VERSION = 1;

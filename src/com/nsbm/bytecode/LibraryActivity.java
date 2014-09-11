@@ -16,6 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/**
+ * Fragments support libraries are used to support Gingerbread 2.3.3 (API 10)
+ * Library Activity consists of two fragments controlled by tabs.
+ *
+ */
 public class LibraryActivity extends FragmentActivity implements
 		ActionBar.TabListener {
 
@@ -111,14 +116,7 @@ public class LibraryActivity extends FragmentActivity implements
 		}
 
 		@Override
-		public Fragment getItem(int position) {
-			// getItem is called to instantiate the fragment for the given page.
-			// Return a DummySectionFragment (defined as a static inner class
-			// below) with the page number as its lone argument.
-			//Fragment fragment = new DummySectionFragment();
-			//Bundle args = new Bundle();
-			//args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position + 1);
-			//fragment.setArguments(args);
+		public Fragment getItem(int position) {			
 			switch (position) {
 			case 0:
 				return new AlreadyReadFragment();
@@ -131,7 +129,7 @@ public class LibraryActivity extends FragmentActivity implements
 
 		@Override
 		public int getCount() {
-			// Show 3 total pages.
+			// Show 2 total pages Already Read and Wants To Read.
 			return 2;
 		}
 
@@ -145,33 +143,6 @@ public class LibraryActivity extends FragmentActivity implements
 				return getString(R.string.title_section2).toUpperCase(l);
 			}
 			return null;
-		}
-	}
-
-	/**
-	 * A dummy fragment representing a section of the app, but that simply
-	 * displays dummy text.
-	 */
-	public static class DummySectionFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
-		public static final String ARG_SECTION_NUMBER = "section_number";
-
-		public DummySectionFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_library_dummy,
-					container, false);
-			TextView dummyTextView = (TextView) rootView
-					.findViewById(R.id.section_label);
-			dummyTextView.setText(Integer.toString(getArguments().getInt(
-					ARG_SECTION_NUMBER)));
-			return rootView;
 		}
 	}
 

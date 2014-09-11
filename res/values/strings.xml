@@ -25,5 +25,10 @@
     <string name="title_section1">Already Read</string>
     <string name="title_section2">Wants To Read</string>
     <string name="library_remove">Remove From Library</string>
+    <string name="select_genres">Please select your genres from settings first</string>
+    <string name="wants_to_read_add">added to Wants To Read list</string>
+    <string name="already_read_add">added to Already Read list</string>
+    <string name="already_library">Already Read Books List</string>
+    <string name="wants_to_library">Wants To Read Books List</string>
 
 </resources>

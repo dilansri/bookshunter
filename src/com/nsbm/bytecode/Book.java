@@ -2,6 +2,10 @@ package com.nsbm.bytecode;
 
 import android.graphics.Bitmap;
 
+/**
+ * Book POJO class.
+ * Represents the books used in throughout the application
+ */
 public class Book {
 	private String title;
 	private String authors;

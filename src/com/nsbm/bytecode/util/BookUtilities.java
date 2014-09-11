@@ -8,6 +8,10 @@ import android.graphics.Bitmap;
 import com.nsbm.bytecode.Book;
 import com.nsbm.bytecode.data.BookContract.AlreadyReadEntry;
 
+/**
+ * Helper utilities for book class.
+ *
+ */
 public class BookUtilities {
 	public static ContentValues getContentValues(Book book) {
 		ContentValues values = new ContentValues();

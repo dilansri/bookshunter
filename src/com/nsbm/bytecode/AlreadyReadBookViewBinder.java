@@ -10,6 +10,11 @@ import android.widget.RatingBar;
 
 import com.nsbm.bytecode.data.BookContract;
 
+/**
+ * Binding rating's value and image byte stream to book_view.xml views.
+ * Separate class for Wants To Read Books is used for extensibility.
+ *
+ */
 public class AlreadyReadBookViewBinder implements SimpleCursorAdapter.ViewBinder {
 
 	@Override
